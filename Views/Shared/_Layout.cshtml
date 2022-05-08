@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RealEstate1</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+
+
+
+
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/assets/style.css" />
+
+
+
+
+    <!-- Owl stylesheet -->
+    <link rel="stylesheet" href="~/assets/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="~/assets/owl-carousel/owl.theme.css">
+
+    <!-- Owl stylesheet -->
+    <!-- slitslider -->
+    <link rel="stylesheet" type="text/css" href="~/assets/slitslider/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/slitslider/css/custom.css" />
+
+    <!-- slitslider -->
+
+</head>
+<body>
+
+    <header>
+        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RealEstate1</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </li>
+            </ul>
+            </div>
+            </div>
+            </nav>*@
+        <div class="navbar-wrapper">
+
+            <div class="navbar-inverse" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+
+
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+
+
+                    <!-- Nav Starts -->
+                    <div class="navbar-collapse  collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active">
+                                @*<a href="index.php">Home</a>*@
+                                <a asp-action="Index" asp-controller="Home">Home</a>
+                            </li>
+                            <li>
+                                @*<a href="about.php">About</a>*@
+                                <a asp-action="About" asp-controller="Home">About</a>
+                            </li>
+                            <li><a href="agents.php">Agents</a></li>
+                            @*<li><a href="blog.php">Blog</a></li>*@
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="">Contact</a></li>
+
+                            <li>
+                                <partial name="_LoginPartial" />
+                                
+                            </li>
+                        </ul>
+                        <style>
+                            .asdBTN {
+                                background: none !important;
+                                border: none;
+                                padding: 0 !important;
+                                /*optional*/
+                                font-family: arial, sans-serif;
+                                /*input has OS specific font-family*/
+                                color: #069;
+                                cursor: pointer;
+                                font-size: 11px;
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                                font-family: din;
+                                text-transform: uppercase;
+                                color: #999999;
+                            }
+
+                                .asdBTN:hover {
+                                    color: #ffffff;
+                                    background-color: transparent;
+                                }
+
+                        </style>
+                    </div>
+                    <!-- #Nav Ends -->
+
+                </div>
+            </div>
+
+        </div>
+        <!-- #Header Starts -->
+
+
+
+
+
+        <div class="container">
+
+            <!-- Header Starts -->
+            <div class="header">
+                <a href="index.php"><img src="~/images/logo.png" alt="Realestate"></a>
+
+                <ul class="pull-right">
+                    <li><a href="buysalerent.php">Buy Now</a></li>
+                    @*<li><a href="buysalerent.php">Sale</a></li>*@
+                    @*<li><a href="buysalerent.php">Rent</a></li>*@
+                </ul>
+            </div>
+            <!-- #Header Starts -->
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer @*class="border-top footer text-muted"*@>
+        @*        <div class="container">
+            &copy; 2022 - RealEstate1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>*@
+
+        <div class="footer">
+
+            <div class="container">
+
+
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3">
+                        <h4>Information</h4>
+                        <ul class="row">
+                            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="about.php">About</a></li>
+                            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="agents.php">Agents</a></li>
+                            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="blog.php">Blog</a></li>
+                            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="contact.php">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-3">
+                        <h4>Newsletter</h4>
+                        <p>Get notified about the latest properties in our marketplace.</p>
+                        <form class="form-inline" role="form">
+                            <input type="text" placeholder="Enter Your email address" class="form-control">
+                            <button class="btn btn-success" type="button">Notify Me!</button>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-3">
+                        <h4>Follow us</h4>
+                        <a href="#"><img src="~/images/facebook.png" alt="facebook"></a>
+                        <a href="#"><img src="~/images/twitter.png" alt="twitter"></a>
+                        <a href="#"><img src="~/images/linkedin.png" alt="linkedin"></a>
+                        <a href="#"><img src="~/images/instagram.png" alt="instagram"></a>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-3">
+                        <h4>Contact us</h4>
+                        <p>
+                            <b>Bootstrap Realestate Inc.</b><br>
+                            <span class="glyphicon glyphicon-map-marker"></span> 8290 Walk Street, Australia <br>
+                            <span class="glyphicon glyphicon-envelope"></span> hello@bootstrapreal.com<br>
+                            <span class="glyphicon glyphicon-earphone"></span> (123) 456-7890
+                        </p>
+                    </div>
+                </div>
+                <p class="copyright">Copyright 2013. All rights reserved. </p>
+
+
+            </div>
+        </div>
+
+
+        @*login partial*@
+        
+        <!-- Modal -->
+
+
+
+
+
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.js"></script>
+    <script src="~/assets/script.js"></script>
+    <script src="~/assets/owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/assets/slitslider/js/modernizr.custom.79639.js"></script>
+    <script type="text/javascript" src="~/assets/slitslider/js/jquery.ba-cond.min.js"></script>
+    <script type="text/javascript" src="~/assets/slitslider/js/jquery.slitslider.js"></script>
+
+
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
