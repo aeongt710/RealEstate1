@@ -1,4 +1,5 @@
 ﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> signInManager
+@model RealEstate1.Models.ViewModels.LoginViewModel
 @if (signInManager.IsSignedIn(User))
 {
 
@@ -6,7 +7,6 @@
     <li>
         <a href="javascript:document.getElementById('logoutForm').submit()" class="text-decoration-none p-1 nav-link text-dark">Logout</a>
         <form id="logoutForm" asp-action="LogOff" class="pl-3" method="post" asp-controller="Account">
-            
         </form>
     </li>
     @*<li><a asp-action="Logout" asp-controller="Account" class="text-danger">Logout</a></li>*@
@@ -22,24 +22,58 @@ else
                 <div class="row">
                     <div class="col-sm-6 login">
                         <h4>Login</h4>
-                        <form class="" role="form">
+                        <form asp-action="Login" asp-controller="Account" role="form">
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                                <input asp-for="Email" class="form-control" id="exampleInputEmail2" placeholder="Email Address"/>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword2"
-                                   placeholder="Password">
+                                <input asp-for="Password" class="form-control" id="exampleInputPassword2" placeholder="Password"
+                                    />
                             </div>
                             <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Remember me
-                                </label>
+         @*                       <label>
+                                    <input asp-for="RememberMe"/>  Remember Me?
+                                </label>*@
                             </div>
                             <button type="submit" class="btn btn-success">Sign in</button>
                         </form>
+
+                        @*<form asp-action="Login" asp-controller="Account">
+                            <h4>Use your credentials to login</h4>
+                            <hr />
+                            <div asp-validation-summary="ModelOnly"></div>
+                            <div class="form-group  row ">
+                                <label asp-for="Email" class="form-control"></label>
+                                <div class="col-md-7">
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger" id="exampleInputEmail2" placeholder="Enter email"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="Password" class="col-md-3"></label>
+                                <div class="col-md-7">
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+
+                                <label asp-for="RememberMe" class="col-md-3">    </label>
+                                <div class="col-md-7">
+                                    <input asp-for="RememberMe" class="" />
+                                </div>
+                            </div>
+                            <div class="">
+                                <input type="submit" value="Login" class="form-control col-md-4 offset-md-3 btn-outline-primary btn-sm" />
+                            </div>
+                            <div class="pt-3">
+                                <a asp-controller="Account" class="offset-3" asp-action="Register">Register</a>
+                            </div>
+                        </form>*@
                     </div>
+
                     <div class="col-sm-6">
                         <h4>New User Sign Up</h4>
                         <p>Join today and get updated with all the properties deal happening around.</p>

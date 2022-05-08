@@ -38,7 +38,7 @@ namespace RealEstate1.Controllers
                 var signInResult = await _signInManager.PasswordSignInAsync(vm.Email, vm.Password, vm.RememberMe, false);
                 if (signInResult.Succeeded)
                 {
-                    return RedirectToAction("Index", "Appointment");
+                    return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "Invalid Login Attempt!");
             }
