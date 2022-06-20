@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RealEstate1.Models;
+using RealEstate1.Services;
+using RealEstate1.Services.IService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +34,7 @@ namespace RealEstate1
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDBContext>();
+            services.AddTransient<IAdminService, AdminService>();
             services.AddHttpContextAccessor();
         }
 

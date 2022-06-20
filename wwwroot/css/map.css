@@ -1,0 +1,31 @@
+﻿
+
+#map {
+    position: relative;
+    /*        top: 0;
+        bottom: 0;*/
+    width: 600px;
+    height: 300px;
+    border-radius:8px;
+}
+
+.marker {
+    /*background-image: url('../img/map/icons8_Location_16px.png');*/
+    background-size: cover;
+    background-image: url('../img/map/icons8_Location_24px_1.png');
+    width:10%;
+    height: 13%;
+/*    width: 50px;
+    height: 50px;*/
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}

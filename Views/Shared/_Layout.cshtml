@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RealEstate1</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+  
 
     <link rel="stylesheet" href="~/css/site.css" />
     @* <link rel="stylesheet" href="~/css/boots1.css.css" /> *@
@@ -139,7 +141,7 @@
 
 
 
-
+@*
         <div class="container">
 
             <!-- Header Starts -->
@@ -148,13 +150,14 @@
 
                 <ul class="pull-right">
                     <li><a href="buysalerent.php">Buy Now</a></li>
-                    @*<li><a href="buysalerent.php">Sale</a></li>*@
-                    @*<li><a href="buysalerent.php">Rent</a></li>*@
+                    <li><a href="buysalerent.php">Sale</a></li>
+                    <li><a href="buysalerent.php">Rent</a></li>
                 </ul>
             </div>
             <!-- #Header Starts -->
-        </div>
+        </div>*@
     </header>
+    <partial name="_Notification" />
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -168,7 +171,6 @@
 
         <div class="footer">
 
-            <div class="container">
 
 
 
@@ -213,7 +215,6 @@
                 <p class="copyright">Copyright 2013. All rights reserved. </p>
 
 
-            </div>
         </div>
 
 

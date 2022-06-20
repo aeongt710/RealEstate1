@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RealEstate1.Models;
 
 namespace RealEstate1.Models
 {
@@ -9,5 +10,6 @@ namespace RealEstate1.Models
         {
 
         }
+        public DbSet<RealEstate1.Models.Society> Societies { get; set; }
     }
 }
