@@ -1,49 +1,48 @@
-﻿@model RealEstate1.Models.ViewModels.SocietyCreateVM
+﻿@model RealEstate1.Models.Society
+
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
 <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/css/map.css" />
-
+<h4>Society</h4>
 <hr />
-<h2 class="text-black-50">Create New Society</h2>
-<br />
-<form asp-action="CreateSociety" enctype="multipart/form-data">
+<form asp-action="EditSocieties" >
     <div class="row">
         <div class="col-5">
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Society.SocietyName" class="control-label"></label>
-                <input asp-for="Society.SocietyName" class="form-control" />
-                <span asp-validation-for="Society.SocietyName" class="text-danger"></span>
+                <label asp-for="SocietyName" class="control-label"></label>
+                <input asp-for="SocietyName" class="form-control" />
+                <span asp-validation-for="SocietyName" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="ImgSrc" class="control-label"></label>
+                <input asp-for="ImgSrc" class="" />
+                <span asp-validation-for="ImgSrc" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="" />
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Society.City" class="control-label"></label>
-                <select asp-for="Society.City" class="form-control" id="citySelect"></select>
-                <span asp-validation-for="Society.City" class="text-danger"></span>
+                <label asp-for="City" class="control-label"></label>
+                <select asp-for="City" class="form-control" id="citySelect"></select>
+                <span asp-validation-for="City" class="text-danger"></span>
             </div>
 
           
                 <div class="form-group">
-                    <label asp-for="Society.Longitude" class="control-label"></label>
-                    <input asp-for="Society.Longitude" id="longi" class="form-control" readonly />
+                    <label asp-for="Longitude" class="control-label"></label>
+                    <input asp-for="Longitude" id="longi" class="form-control" readonly />
                     @*<span asp-validation-for="Society.Longitude" class="text-danger"></span>*@
                 </div>
                 <div class="form-group">
-                    <label asp-for="Society.Latitude" class="control-label"></label>
-                    <input asp-for="Society.Latitude" id="lati" class="form-control" readonly />
+                    <label asp-for="Latitude" class="control-label"></label>
+                    <input asp-for="Latitude" id="lati" class="form-control" readonly />
                     @*<span asp-validation-for="Society.Latitude" class="text-danger"></span>*@
                 </div>
             <div class="form-group">
-                <label asp-for="Society.Description" class="control-label"></label>
-                <textarea asp-for="Society.Description" rows="3" id="lati" class="form-control"></textarea>
-                <span asp-validation-for="Society.Description" class="text-danger"></span>
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" rows="3" id="lati" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary2" />
@@ -55,23 +54,21 @@
 
         <div class="col-3 pt-5">
             <div id="map"></div>
-            <span asp-validation-for="Society.Latitude" class="text-danger mt-4"></span>
+            <span asp-validation-for="Latitude" class="text-danger mt-4"></span>
         </div>
 
 
     </div>
 </form>
 
+
 <div>
     <a asp-action="Societies">Back to List</a>
 </div>
 
 @section Scripts {
-    @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-}
-
 
 
 <script>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RealEstate1.Models.Block>
+
+<br />
+<h3>Blocks (@ViewBag.societyname)</h3>
+<p>
+    <a asp-action="CreateBlock" asp-route-societyId="@ViewBag.society"><i class="bi bi-plus-circle-fill" style="font-size:12px;">&nbsp;Create New</i></a>
+</p>
+<table class="table" style="border-radius:20px;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BlockName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Society.SocietyName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            @if (Model != null)
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BlockName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Society.SocietyName)
+                        </td>
+                        <td>
+                            <a asp-action="EditBlock" asp-route-id="@item.Id"><i class="bi bi-pencil-square" style="font-size:20px;"></i></a> &nbsp;
+                            <a asp-action="DeleteBlock" asp-route-id="@item.Id"><i class="bi bi-trash2-fill" style="font-size:20px;"></i></a>
+                        </td>
+                    </tr>
+                }
+        }
+    </tbody>
+</table>

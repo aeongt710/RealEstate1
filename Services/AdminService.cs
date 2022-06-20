@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace RealEstate1.Services
 {
@@ -54,9 +55,77 @@ namespace RealEstate1.Services
             return false;
         }
 
+
+
+        public bool DeleteSocietyById(int id)
+        {
+            _dbContext.Societies.Remove(new Society { Id = id });
+            var result = _dbContext.SaveChanges();
+            if (result > 0)
+                return true;
+            return false;
+        }
+
         public List<Society> GetScoieties()
         {
-            return _dbContext.Societies.ToList();
+            return _dbContext.Societies.Include(a=>a.SocietyBlocks).ToList();
         }
+
+        public Society GetSocietyById(int id)
+        {
+            return _dbContext.Societies.FirstOrDefault(a => a.Id == id);
+        }
+
+        public bool SaveEditedSociety(Society society)
+        {
+            _dbContext.Update(society);
+            var result=_dbContext.SaveChanges();
+            if (result > 0)
+                return true;
+            return false;
+        }
+
+
+
+        public List<Block> GetBlocksBySocietyId(int societyId)
+        {
+            return _dbContext.Blocks
+                        .Include(a => a.Society)
+                            .Where(a => a.SocietyId == societyId)
+                                .ToList();
+        }
+
+        public bool AddNewBlock(Block block)
+        {
+            _dbContext.Add(block);
+            var result = _dbContext.SaveChanges();
+            if (result > 0)
+                return true;
+            return false;
+        }
+
+        public bool UpdateBlock(Block block)
+        {
+            _dbContext.Update(block);
+            var result=_dbContext.SaveChanges();
+            if (result > 0)
+                return true;
+            return false;
+        }
+
+        public Block GetBlockById(int id)
+        {
+            return _dbContext.Blocks.FirstOrDefault(a => a.Id == id);
+        }
+
+        public bool DeleteLockById(int id)
+        {
+            _dbContext.Blocks.Remove(new Block() { Id= id });
+            var result = _dbContext.SaveChanges();
+            if (result > 0)
+                return true;
+            return false;
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RealEstate1.Models
 {
@@ -16,5 +17,6 @@ namespace RealEstate1.Models
         [Required]
         public string City { get; set; }
         public string? Description { get; set; }
+        public List<Block> SocietyBlocks { get; set; }
     }
 }

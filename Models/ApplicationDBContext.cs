@@ -11,5 +11,18 @@ namespace RealEstate1.Models
 
         }
         public DbSet<RealEstate1.Models.Society> Societies { get; set; }
+        public DbSet<Block> Blocks { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Block>(x=>
+            {
+                x.HasOne(a=>a.Society)
+                    .WithMany(b=>b.SocietyBlocks)
+                    .HasForeignKey(c=>c.SocietyId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+            base.OnModelCreating(builder);
+        }
     }
 }

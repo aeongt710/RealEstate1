@@ -49,10 +49,14 @@
                 @*            <td>
                     @Html.DisplayFor(modelItem => item.Description)
                     </td>*@
+
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square" style="font-size:20px;"></i></a> &nbsp;
+                    <a asp-action="Blocks" asp-route-societyId="@item.Id" asp-route-societyname="@item.SocietyName">Blocks (@item.SocietyBlocks.Count())</a>
+                </td>
+                <td>
+                    <a asp-action="EditSocieties" asp-route-id="@item.Id"><i class="bi bi-pencil-square" style="font-size:20px;"></i></a> &nbsp;
                     <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-file-earmark-text" style="font-size:20px;"></i> </a>&nbsp;
-                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash2-fill" style="font-size:20px;"></i></a>
+                    <a asp-action="DeleteSociety" asp-route-id="@item.Id"><i class="bi bi-trash2-fill" style="font-size:20px;"></i></a>
                 </td>
             </tr>
         }
