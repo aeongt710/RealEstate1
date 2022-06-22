@@ -12,6 +12,7 @@ namespace RealEstate1.Models
         }
         public DbSet<RealEstate1.Models.Society> Societies { get; set; }
         public DbSet<Block> Blocks { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
